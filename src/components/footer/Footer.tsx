@@ -2,8 +2,8 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>
-    <footer className="footer bg-base-200 text-base-content p-10">
+    <div className="">
+    <footer className="footer bg-base-200 gap-2 text-base-content py-[4rem] px-[8rem] w-full ">
     <nav>
       <h6 className="footer-title">Services</h6>
       <a className="link link-hover">Branding</a>
@@ -24,9 +24,25 @@ const Footer = () => {
       <a className="link link-hover">Privacy policy</a>
       <a className="link link-hover">Cookie policy</a>
     </nav>
+    <form className='bg-gray-200 p-7 rounded-xl'>
+    <h6 className="footer-title">Newsletter</h6>
+    <fieldset className="form-control w-80">
+      <label className="label">
+        <span className="label-text">Enter your email address</span>
+      </label>
+      <div className="join">
+        <input
+          type="text"
+          placeholder="username@site.com"
+          className="input input-bordered join-item" />
+        <button className="btn btn-primary join-item">Subscribe</button>
+      </div>
+    </fieldset>
+  </form>
   </footer>
-  <footer className="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4">
-    <aside className="grid-flow-col items-center">
+  <footer className="footer bg-base-200 text-base-content border-base-300 border-t py-4 px-[8rem] ">
+    <aside className="flex gap-[26rem] w-full items-center">
+      <div className='flex gap-2'>
       <svg
         width="24"
         height="24"
@@ -43,8 +59,8 @@ const Footer = () => {
         <br />
         Providing reliable tech since 1992
       </p>
-    </aside>
-    <nav className="md:place-self-center md:justify-self-end">
+      </div>
+         <nav className="md:place-self-center md:justify-self-end">
       <div className="grid grid-flow-col gap-4">
         <a>
           <svg
@@ -81,7 +97,10 @@ const Footer = () => {
         </a>
       </div>
     </nav>
+    </aside>
+ 
   </footer>
+  
   </div>
   )
 }
