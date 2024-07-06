@@ -22,3 +22,12 @@ body {
     text-wrap: balance;
   }
 }
+/* Add this to your global CSS file */
+.nav-item:hover::after {
+  content: '';
+  display: block;
+  margin: auto;
+  height: 2px;
+  width: 100%;
+  background: red;
+}
