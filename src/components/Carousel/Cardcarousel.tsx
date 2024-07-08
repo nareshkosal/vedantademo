@@ -1,22 +1,116 @@
 import React from 'react';
+import Slider from 'react-slick';
+import { Card } from '../ui/card';
+import { FlaskRoundIcon, FuelIcon, PowerIcon, SunIcon, ShieldIcon } from 'lucide-react';
+import Image from 'next/image';
 
-const Card: React.FC = () => {
+const Cardcarousel: React.FC = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+    ],
+  };
+
   return (
-    <div className="relative flex items-center justify-center w-80 p-8 overflow-hidden rounded-lg shadow-[0_10px_20px_rgba(0,0,0,0.2)] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.320,1)] hover:shadow-none group">
-      <div className="flex flex-col items-start gap-5 text-[#e8e8e8] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.320,1)]">
-        <p className="text-3xl font-bold">Card Hover Effect</p>
-        <p className="leading-relaxed">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
-          laboriosam at voluptas minus culpa deserunt delectus sapiente
-          inventore pariatur
-        </p>
-        <button className="px-3 py-2 font-semibold rounded text-[#e8e8e8] bg-gradient-to-br from-[#f89b29] to-[#ff0f7b] shadow-md transition-all duration-300 hover:text-[#212121] hover:bg-[#e8e8e8] group-hover:bg-[#e8e8e8] group-hover:text-[#212121] hover:outline hover:outline-2 hover:outline-[#e8e8e8] active:shadow-none">
-          Read more
-        </button>
-      </div>
-      <div className="absolute inset-x-0 top-0 h-[5px] bg-gradient-to-r from-[#f89b29] to-[#ff0f7b] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.320,1)] group-hover:h-full -z-10"></div>
-    </div>
+    <>
+      <section className="p-8">
+        <Slider {...settings}>
+          <Card className="relative">
+            <Image 
+              src="/placeholder.svg" 
+              alt="Fuel & Gas Management" 
+              className="w-full h-48 object-cover" 
+              layout="fill" 
+              objectFit="cover" 
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50" />
+            <div className="relative z-10 p-4 text-white">
+              <FuelIcon className="w-6 h-6 text-orange-500" />
+              <h3 className="mt-2 text-lg font-bold">Fuel & Gas Management</h3>
+            </div>
+          </Card>
+          <Card className="relative">
+            <Image 
+              src="/placeholder.svg" 
+              alt="Chemical Research" 
+              className="w-full h-48 object-cover" 
+              layout="fill" 
+              objectFit="cover" 
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50" />
+            <div className="relative z-10 p-4 text-white">
+              <FlaskRoundIcon className="w-6 h-6 text-orange-500" />
+              <h3 className="mt-2 text-lg font-bold">Chemical Research</h3>
+            </div>
+          </Card>
+          <Card className="relative">
+            <Image 
+              src="/placeholder.svg" 
+              alt="Power & Energy Sector" 
+              className="w-full h-48 object-cover" 
+              layout="fill" 
+              objectFit="cover" 
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50" />
+            <div className="relative z-10 p-4 text-white">
+              <PowerIcon className="w-6 h-6 text-orange-500" />
+              <h3 className="mt-2 text-lg font-bold">Power & Energy Sector</h3>
+            </div>
+          </Card>
+          <Card className="relative">
+            <Image 
+              src="/placeholder.svg" 
+              alt="Renewable Energy" 
+              className="w-full h-48 object-cover" 
+              layout="fill" 
+              objectFit="cover" 
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50" />
+            <div className="relative z-10 p-4 text-white">
+              <SunIcon className="w-6 h-6 text-yellow-500" />
+              <h3 className="mt-2 text-lg font-bold">Renewable Energy</h3>
+            </div>
+          </Card>
+          <Card className="relative">
+            <Image 
+              src="/placeholder.svg" 
+              alt="Security Systems" 
+              className="w-full h-48 object-cover" 
+              layout="fill" 
+              objectFit="cover" 
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-50" />
+            <div className="relative z-10 p-4 text-white">
+              <ShieldIcon className="w-6 h-6 text-blue-500" />
+              <h3 className="mt-2 text-lg font-bold">Security Systems</h3>
+            </div>
+          </Card>
+        </Slider>
+      </section>
+     
+    </>
   );
 };
 
-export default Card;
+export default Cardcarousel;

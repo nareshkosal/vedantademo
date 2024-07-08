@@ -9,6 +9,8 @@ const images = [
   'https://images.pexels.com/photos/247763/pexels-photo-247763.jpeg?auto=compress&cs=tinysrgb&w=800',
   'https://images.pexels.com/photos/2480806/pexels-photo-2480806.jpeg?auto=compress&cs=tinysrgb&w=800',
   'https://images.pexels.com/photos/247763/pexels-photo-247763.jpeg?auto=compress&cs=tinysrgb&w=800',
+  'https://images.pexels.com/photos/2480806/pexels-photo-2480806.jpeg?auto=compress&cs=tinysrgb&w=800',
+  'https://images.pexels.com/photos/2480806/pexels-photo-2480806.jpeg?auto=compress&cs=tinysrgb&w=800',
 ];
 
 interface CustomArrowProps {
@@ -19,24 +21,34 @@ interface CustomArrowProps {
 const CustomArrow: React.FC<CustomArrowProps> = ({ direction, onClick }) => {
   return (
     <div
-      className={`absolute top-1/2 ${direction === 'next' ? 'right-4' : 'left-4'} transform -translate-y-1/2 z-10 bg-black bg-opacity-50 p-2 rounded-full cursor-pointer`}
+      className={`absolute top-1/2 ${direction === 'next' ? 'right-4' : 'left-4'} transform -translate-y-1/2 z-10 cursor-pointer`}
       onClick={onClick}
     >
-      {direction === 'next' ? (
-        <FaChevronRight className="text-white" />
-      ) : (
-        <FaChevronLeft className="text-white" />
-      )}
+      <div className="group bg-black bg-opacity-50 rounded-full hover:bg-opacity-75 transition-all duration-300">
+        <div className="flex items-center">
+          {direction === 'prev' && (
+            <span className="text-white max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 pl-2">
+              Slide Previous
+            </span>
+          )}
+          <div className={`text-white text-3xl p-2 ${direction === 'next' ? 'order-2' : 'order-1'}`}>
+            {direction === 'next' ? <FaChevronRight /> : <FaChevronLeft />}
+          </div>
+          {direction === 'next' && (
+            <span className="text-white max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 pr-2">
+              Slide Next
+            </span>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
 
 const ImageCarousel: React.FC = () => {
   const sliderRef = useRef<Slider | null>(null);
-  const [isHovered, setIsHovered] = useState(false);
 
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -46,40 +58,51 @@ const ImageCarousel: React.FC = () => {
     autoplaySpeed: 3000, // Set autoplay speed (3 seconds)
   };
 
+  const getPositionClass = (index: number) => {
+    switch (index % 3) {
+      case 0:
+        return 'items-start text-left'; // Left
+      case 1:
+        return 'items-center text-center'; // Center
+      case 2:
+        return 'items-end text-right'; // Right
+      default:
+        return 'items-start text-left';
+    }
+  };
+
   return (
-    <div
-      className="relative group"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <div className="relative">
       <Slider ref={sliderRef} {...settings}>
         {images.map((src, index) => (
-          <div key={index} className="relative h-[40rem]"> {/* Set a fixed height */}
-            <Image 
-              src={src} 
-              alt={`Image ${index + 1}`} 
+          <div key={index} className="relative h-[40rem]">
+            <Image
+              src={src}
+              alt={`Image ${index + 1}`}
               layout="fill"
               objectFit="cover"
               className="w-full"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center items-start">
-              <h2 className="text-white text-3xl mb-4">We provide the best industrial services</h2>
-              <p className="text-white text-lg mb-4">We are the best guarenteed compny to serve you. We are dedicated to help you anytime.</p>
-              <button className="bg-red-500 onhover:bg-gray-400 text-white px-4 py-2 flex items-center space-x-2">
-                <span>Learn More</span>
-                <FaArrowRight />
-              </button>
+            <div className={`absolute inset-0 bg-black bg-opacity-30 flex flex-col justify-center ${getPositionClass(index)}`}>
+              <div className="px-4">
+                <h1 className="text-4xl text-white font-bold">
+                  We will provide the best <br /> <span className="text-orange-500">Industrial</span> service
+                </h1>
+                <p className="text-lg text-white">
+                  We are the best guaranteed company to serve you.<br /> We are dedicated to help you any time.
+                </p>
+                  <button className="bg-red-500 hover:bg-gray-400 text-white px-4 py-2 flex items-center space-x-2">
+                    <span>Learn More</span>
+                    <FaArrowRight />
+                  </button>
+              </div>
             </div>
           </div>
         ))}
       </Slider>
-      
-      {isHovered && (
-        <>
-          <CustomArrow direction="prev" onClick={() => sliderRef.current?.slickPrev()} />
-          <CustomArrow direction="next" onClick={() => sliderRef.current?.slickNext()} />
-        </>
-      )}
+
+      <CustomArrow direction="prev" onClick={() => sliderRef.current?.slickPrev()} />
+      <CustomArrow direction="next" onClick={() => sliderRef.current?.slickNext()} />
     </div>
   );
 };

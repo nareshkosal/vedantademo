@@ -1,12 +1,30 @@
 import { FaIndustry, FaPhoneAlt, FaClock, FaEnvelope, FaBars, FaChevronDown, FaTimes } from 'react-icons/fa';
-import { useRef, useState } from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
 import Modal from '../Modal/Modal';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState<number | null>(null);
     const dropdownTimeoutRef = useRef<number | null>(null);
+    const stickyHeaderRef: RefObject<HTMLDivElement> = useRef(null);
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
+    const handleScroll = () => {
+        const stickyHeader = stickyHeaderRef.current;
+        if (stickyHeader) {
+            const sticky = stickyHeader.offsetTop;
+            if (window.pageYOffset > sticky) {
+                stickyHeader.classList.add("sticky");
+            } else {
+                stickyHeader.classList.remove("sticky");
+            }
+        }
+    };
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
@@ -158,8 +176,10 @@ export default function Header() {
                     </div>
                 </div>
 
-                <div className="flex w-full h-14 absolute -bottom-7 items-center z-10 justify-between px-7 ">
-                    <div className='flex bg-white h-full px-3 flex-row ml-4'>
+                <div 
+                    ref={stickyHeaderRef}
+                    className="flex w-full h-14 absolute -bottom-7 items-center z-10 justify-between px-7 transition-all duration-300"
+                >                    <div className='flex bg-white h-full px-3 flex-row ml-4'>
                         <button className=" text-black focus:outline-none" onClick={toggleMenu}>
                             <FaBars size={24} />
                         </button>
