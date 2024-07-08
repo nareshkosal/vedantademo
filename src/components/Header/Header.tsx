@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-no-undef */
 import { FaIndustry, FaPhoneAlt, FaClock, FaEnvelope, FaBars, FaChevronDown, FaTimes } from 'react-icons/fa';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import Modal from '../Modal/Modal';
-
+ 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState<number | null>(null);
@@ -44,7 +45,7 @@ export default function Header() {
     };
 
     const renderNavItems = (isModal: boolean) => (
-        <ul className={`md:flex items-center justify-between font-semibold w-full ${isModal ? 'flex-col text-center' : ''}`}>
+        <ul className={`md:flex gap-8 items-center font-semibold w-full ${isModal ? 'flex-col text-center' : ''}`}>
             <li className="relative nav-item">
                 <button
                     className="text-black focus:outline-none flex items-center"
@@ -145,11 +146,16 @@ export default function Header() {
             <div className='relative w-full'>
                 <div className='flex'>
                     <div className="h-32 w-1/3 bg-slate-600 flex pt-7 justify-start">
-                        <FaIndustry size={24} color="white" />
-                        <h1 className="text-white ml-2">industry</h1>
+                    <Image
+            src={"/vedanta-logo.svg"}
+            alt={""}
+            width={500}
+            height={500}
+            className="w-full h-full bg-cover my-4"
+          ></Image>
                     </div>
 
-                    <div className="bg-slate-800 flex px-4 pt-6 justify-between w-full">
+                    <div className="bg-slate-800 md:flex px-4 pt-6 justify-between w-full">
                         <div className="flex">
                             <FaPhoneAlt size={20} className='text-white m-2' />
                             <div>
@@ -185,7 +191,7 @@ export default function Header() {
                         </button>
                     </div>
 
-                    <div className="flex-1 hidden md:flex justify-center bg-white h-full px-5 items-center ">
+                    <div className="flex-1 hidden md:flex gap-2 justify-center bg-white h-full px-5 items-center ">
                         {renderNavItems(false)}
                     </div>
 

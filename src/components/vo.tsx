@@ -122,7 +122,7 @@ export default function Component() {
   return (
     <div className="min-h-screen bg-white">
       <main className="px-4 py-16 text-center md:px-8 lg:px-16">
-        <div className="flex">
+        <div className="md:flex">
           <div className="text-left">
             <h1 className="text-4xl font-bold">
               Welcome to <span className="text-[#f97316]">Industrio Company</span>
