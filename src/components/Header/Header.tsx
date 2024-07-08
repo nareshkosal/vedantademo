@@ -2,7 +2,8 @@
 import { FaIndustry, FaPhoneAlt, FaClock, FaEnvelope, FaBars, FaChevronDown, FaTimes } from 'react-icons/fa';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import Modal from '../Modal/Modal';
- 
+import Image from 'next/image';
+
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState<number | null>(null);
