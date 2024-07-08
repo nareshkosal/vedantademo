@@ -7,6 +7,7 @@ import companyHistory from "../../../src/assets/transforming-for-good-slider_img
 import { GoShieldCheck } from "react-icons/go";
 import { RiLightbulbFlashLine } from "react-icons/ri";
 import { BsPersonWorkspace } from "react-icons/bs";
+import Link from "next/link";
 
 const About = () => {
   const [selectedYear, setSelectedYear] = useState(2010);
@@ -72,9 +73,9 @@ const About = () => {
               <h3 className="text-4xl font-bold mb-4">About Us</h3>
               <ul className="flex justify-center">
                 <li>
-                  <a href="/" className="text-[#0063A8]">
+                  <Link href="/" className="text-[#0063A8]">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <span className="mx-2">&gt;</span>
@@ -369,7 +370,7 @@ const About = () => {
 
                 <div className="bg-gray-100 p-8 rounded-lg">
                   <div className="text-4xl text-gray-300 absolute top-4 right-4">
-                    "
+                    
                   </div>
                   <h3 className="text-2xl font-bold mb-4">
                     {reviews[currentReview].title}

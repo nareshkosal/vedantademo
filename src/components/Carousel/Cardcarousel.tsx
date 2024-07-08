@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
+import Image from 'next/image';
 import { Card } from '../ui/card';
 import { FlaskRoundIcon, FuelIcon, PowerIcon, SunIcon, ShieldIcon } from 'lucide-react';
-import Image from 'next/image';
 
 const Cardcarousel: React.FC = () => {
+  const images = [
+    "https://images.pexels.com/photos/236709/pexels-photo-236709.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/2569844/pexels-photo-2569844.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/459728/pexels-photo-459728.jpeg?auto=compress&cs=tinysrgb&w=800"
+  ];
+
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -32,84 +40,75 @@ const Cardcarousel: React.FC = () => {
     ],
   };
 
+  const cardInfo = [
+    {
+      title: "Fuel & Gas Management",
+      icon: <FuelIcon className="w-6 h-6 text-orange-500" />,
+      hoverText: "Discover more about Fuel & Gas Management",
+    },
+    {
+      title: "Chemical Research",
+      icon: <FlaskRoundIcon className="w-6 h-6 text-orange-500" />,
+      hoverText: "Explore Chemical Research",
+    },
+    {
+      title: "Power & Energy Sector",
+      icon: <PowerIcon className="w-6 h-6 text-orange-500" />,
+      hoverText: "Learn about the Power & Energy Sector",
+    },
+    {
+      title: "Renewable Energy",
+      icon: <SunIcon className="w-6 h-6 text-yellow-500" />,
+      hoverText: "Discover Renewable Energy Solutions",
+    },
+    {
+      title: "Security Systems",
+      icon: <ShieldIcon className="w-6 h-6 text-blue-500" />,
+      hoverText: "Explore Security Systems",
+    }
+  ];
+
   return (
-    <>
-      <section className="p-8">
-        <Slider {...settings}>
-          <Card className="relative">
-            <Image 
-              src="/placeholder.svg" 
-              alt="Fuel & Gas Management" 
-              className="w-full h-48 object-cover" 
-              layout="fill" 
-              objectFit="cover" 
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50" />
-            <div className="relative z-10 p-4 text-white">
-              <FuelIcon className="w-6 h-6 text-orange-500" />
-              <h3 className="mt-2 text-lg font-bold">Fuel & Gas Management</h3>
-            </div>
-          </Card>
-          <Card className="relative">
-            <Image 
-              src="/placeholder.svg" 
-              alt="Chemical Research" 
-              className="w-full h-48 object-cover" 
-              layout="fill" 
-              objectFit="cover" 
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50" />
-            <div className="relative z-10 p-4 text-white">
-              <FlaskRoundIcon className="w-6 h-6 text-orange-500" />
-              <h3 className="mt-2 text-lg font-bold">Chemical Research</h3>
-            </div>
-          </Card>
-          <Card className="relative">
-            <Image 
-              src="/placeholder.svg" 
-              alt="Power & Energy Sector" 
-              className="w-full h-48 object-cover" 
-              layout="fill" 
-              objectFit="cover" 
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50" />
-            <div className="relative z-10 p-4 text-white">
-              <PowerIcon className="w-6 h-6 text-orange-500" />
-              <h3 className="mt-2 text-lg font-bold">Power & Energy Sector</h3>
-            </div>
-          </Card>
-          <Card className="relative">
-            <Image 
-              src="/placeholder.svg" 
-              alt="Renewable Energy" 
-              className="w-full h-48 object-cover" 
-              layout="fill" 
-              objectFit="cover" 
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50" />
-            <div className="relative z-10 p-4 text-white">
-              <SunIcon className="w-6 h-6 text-yellow-500" />
-              <h3 className="mt-2 text-lg font-bold">Renewable Energy</h3>
-            </div>
-          </Card>
-          <Card className="relative">
-            <Image 
-              src="/placeholder.svg" 
-              alt="Security Systems" 
-              className="w-full h-48 object-cover" 
-              layout="fill" 
-              objectFit="cover" 
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-50" />
-            <div className="relative z-10 p-4 text-white">
-              <ShieldIcon className="w-6 h-6 text-blue-500" />
-              <h3 className="mt-2 text-lg font-bold">Security Systems</h3>
-            </div>
-          </Card>
-        </Slider>
-      </section>
-     
-    </>
+    <section className="p-8">
+      <Slider {...settings}>
+        {images.map((imageUrl, index) => (
+          <div
+            key={index}
+            className="relative"
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            <Card className="relative overflow-hidden">
+              <div className="w-full h-56 relative">
+                <Image
+                  src={imageUrl}
+                  alt="Card Image"
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+              <div className="absolute inset-0 bg-black bg-opacity-0 transition-opacity">
+                <div className={`absolute inset-x-0 bottom-0 bg-black text-white bg-opacity-75 p-4 ${hoveredIndex === index ? 'opacity-0' : 'opacity-100'}`}>
+                  <div className="flex items-center justify-center">
+                    {cardInfo[index].icon}
+                    <h3 className="ml-2 text-lg font-bold">
+                      {cardInfo[index].title}
+                    </h3>
+                  </div>
+                </div>
+                <div className={`absolute inset-0 bg-black bg-opacity-75 transform ${hoveredIndex === index ? 'translate-y-0' : '-translate-y-full'} transition-transform duration-300`}>
+                  <div className="absolute inset-x-0 text-white text-center p-4">
+                    <p className="text-lg font-bold">
+                      {cardInfo[index].hoverText}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </div>
+        ))}
+      </Slider>
+    </section>
   );
 };
 
