@@ -18,9 +18,7 @@ export default function Home() {
    <>
    <Header />
    <ImagesSliderDemo />
-   <Cardcarousel/>
    {/* <Card/> */}
-   <TextReader/>
    <Company/>
    <div className="absolute bottom-0 w-full">
    </div>

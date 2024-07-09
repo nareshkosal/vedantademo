@@ -74,11 +74,54 @@
       @apply bg-background text-foreground;
     }
   }
-  .nav-item:hover::after {
-    content: '';
-    display: block;
-    margin: auto;
-    height: 2px;
-    width: 100%;
-    background: red;
-  }
+  .nav-item {
+    position: relative;
+}
+
+.nav-item button {
+    position: relative;
+    z-index: 1; /* Ensure buttons are above dropdowns */
+    transition: color 0.3s ease; /* Example transition for button color */
+}
+
+.nav-item:hover button {
+    color: red; /* Example color change on hover */
+}
+
+.nav-item ul {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin-top: 10px; /* Adjust as needed */
+    min-width: 120px; /* Example minimum width */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Start hidden */
+    visibility: hidden; /* Start hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease; /* Transition properties */
+    transform: translateY(-10px); /* Start slightly above */
+}
+
+.nav-item:hover ul {
+    opacity: 1; /* Show on hover */
+    visibility: visible; /* Show on hover */
+    transform: translateY(0); /* Slide down */
+}
+
+.nav-item ul li {
+    padding: 8px;
+    transition: background-color 0.3s ease; /* Example transition for background color */
+}
+
+.nav-item ul li:hover {
+    background-color: #f25151; /* Example background color change on hover */
+}
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
