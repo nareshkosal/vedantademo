@@ -77,8 +77,13 @@ export default function MainContent() {
           </aside>
           <section className="flex-1 bg-white p-4 md:p-6 rounded shadow">
             <h1 className="text-2xl font-bold">Chemical Research</h1>
-            <Image src="/placeholder.svg" alt="Chemical Research" className="w-full h-[300px] md:h-[400px] mt-4 rounded" />
-            <p className="mt-4 text-gray-700">
+            <Image
+        src="/placeholder.svg"
+        alt="Chemical Research"
+        width={500}  // Adjust width and height as per your design requirements
+        height={300}
+        className="mt-4 rounded"
+      />            <p className="mt-4 text-gray-700">
               Manufacturing industry became a key sector of production and labour in European and North American countries
               during the Industrial Revolution, upsetting previous mercantile and feudal economies. The Industrial
               Revolution, which took place from the 18th to the 19th centuries, transformed agricultural, rural societies

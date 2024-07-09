@@ -9,13 +9,13 @@ type TitleSectionProps = {
 const TitleSection: React.FC<TitleSectionProps> = ({ title, isSelected, onClick }) => {
   return (
     <div
-      className={`title-section flex w-full bg-gray-100 ${isSelected ? 'selected flex ' : ''}`}
+      className={`title-section flex  bg-gray-100 ${isSelected ? 'selected flex ' : ''}`}
       onClick={onClick}
     >
       <h2 className="title  px-4">{title}</h2>
       <style jsx>{`
         .title-section {
-          border-top: 5px solid transparent;
+          border-top: 2px solid transparent;
           padding: 10px;
           cursor: pointer;
         }
