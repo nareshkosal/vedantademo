@@ -229,7 +229,7 @@ export default function Header() {
   <Modal isOpen={isOpen} onClose={toggleMenu}>
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div
-        className="bg-white w-3/4 h-3/4 p-4 rounded-xl bg-gradient-to-r from-slate-900 via-green-950 to-slate-900"
+        className="bg-white w-full h-full p-4  bg-gradient-to-r from-slate-900 via-green-950 to-slate-900"
         style={{ backgroundImage: '', backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         <div className="flex justify-end">
