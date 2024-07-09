@@ -77,13 +77,18 @@ export default function Header() {
                     Services {isModal ? null : <FaChevronDown className="ml-1 text-xs text-red-500" />}
                 </button>
                 {dropdownOpen === 2 && !isModal && (
-                    <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 z-20"
-                        onMouseEnter={() => handleMouseEnter(2)}
-                        onMouseLeave={handleMouseLeave}>
-                        <li className="p-2 hover:bg-red-500 hover:text-white"><a href="#" className="">Service 1</a></li>
-                        <li className="p-2 hover:bg-red-500 hover:text-white"><a href="#" className="">Service 2</a></li>
-                        <li className="p-2 hover:bg-red-500 hover:text-white"><a href="#" className="">Service 3</a></li>
-                    </ul>
+                    <ul className="absolute left-0 mt-2 w-60 bg-white border border-gray-300 z-20"
+                    onMouseEnter={() => handleMouseEnter(2)}
+                    onMouseLeave={handleMouseLeave}>
+                    <Link href="/services/nickel" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
+                    <Link href="/services" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
+                    <Link href="/services" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
+                    <Link href="/services" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
+                    <Link href="/services" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
+                    <Link href="/services" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
+                    <Link href="/services" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
+                    <Link href="/services" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
+                </ul>
                 )}
             </li>
             <li className="relative nav-item">
