@@ -228,6 +228,8 @@ export default function Header() {
             </div>
 
             {isOpen && (
+
+
                 <Modal isOpen={isOpen} onClose={toggleMenu}>
                     <div className="fixed inset-0 flex items-center justify-center z-50">
                         <div
@@ -246,6 +248,7 @@ export default function Header() {
                     </div>
                 </Modal>
             )}
+
 
         </>
     );
