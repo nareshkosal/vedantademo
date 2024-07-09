@@ -3,6 +3,7 @@ import { FaIndustry, FaPhoneAlt, FaClock, FaEnvelope, FaBars, FaChevronDown, FaT
 import { RefObject, useEffect, useRef, useState } from 'react';
 import Modal from '../Modal/Modal';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -48,13 +49,14 @@ export default function Header() {
     const renderNavItems = (isModal: boolean) => (
         <ul className={`md:flex gap-8 items-center font-semibold w-full ${isModal ? 'flex-col text-center' : ''}`}>
             <li className="relative nav-item">
-                <button
-                    className="text-black focus:outline-none flex items-center"
-                    onMouseEnter={() => !isModal && handleMouseEnter(1)}
-                    onMouseLeave={() => !isModal && handleMouseLeave}
-                >
-                    Home {isModal ? null : <FaChevronDown className="ml-1 text-xs text-red-500" />}
-                </button>
+            <Link href={'/'}><button
+    className="focus:outline-none flex items-center"
+    onMouseEnter={() => !isModal && handleMouseEnter(1)}
+    onMouseLeave={() => !isModal && handleMouseLeave()}
+>
+    Home {isModal ? null : <FaChevronDown className="ml-1 text-xs text-red-500" />}
+</button></Link>
+{/* 
                 {dropdownOpen === 1 && !isModal && (
                     <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 z-20"
                         onMouseEnter={() => handleMouseEnter(1)}
@@ -63,12 +65,12 @@ export default function Header() {
                         <li className="p-2 hover:bg-red-500 hover:text-white"><a href="#" className="">Home Page 2</a></li>
                         <li className="p-2 hover:bg-red-500 hover:text-white"><a href="#" className="">Home Page 3</a></li>
                     </ul>
-                )}
+                )} */}
             </li>
-            <li className="nav-item"><a href="#" className="text-black">About Us</a></li>
+            <li className="nav-item"><a href="about" className="">About Us</a></li>
             <li className="relative nav-item">
                 <button
-                    className="text-black focus:outline-none flex items-center"
+                    className=" focus:outline-none flex items-center"
                     onMouseEnter={() => !isModal && handleMouseEnter(2)}
                     onMouseLeave={() => !isModal && handleMouseLeave}
                 >
@@ -86,7 +88,7 @@ export default function Header() {
             </li>
             <li className="relative nav-item">
                 <button
-                    className="text-black focus:outline-none flex items-center"
+                    className=" focus:outline-none flex items-center"
                     onMouseEnter={() => !isModal && handleMouseEnter(3)}
                     onMouseLeave={() => !isModal && handleMouseLeave}
                 >
@@ -104,7 +106,7 @@ export default function Header() {
             </li>
             <li className="relative nav-item">
                 <button
-                    className="text-black focus:outline-none flex items-center"
+                    className=" focus:outline-none flex items-center"
                     onMouseEnter={() => !isModal && handleMouseEnter(4)}
                     onMouseLeave={() => !isModal && handleMouseLeave}
                 >
@@ -121,14 +123,14 @@ export default function Header() {
                 )}
             </li>
             <li className="relative nav-item">
-                <button
-                    className="text-black focus:outline-none flex items-center"
+             <Link href={'/blogpage'}>   <button
+                    className=" focus:outline-none flex items-center"
                     onMouseEnter={() => !isModal && handleMouseEnter(5)}
                     onMouseLeave={() => !isModal && handleMouseLeave}
                 >
                     Blog {isModal ? null : <FaChevronDown className="ml-1 text-xs text-red-500" />}
-                </button>
-                {dropdownOpen === 5 && !isModal && (
+                </button></Link>
+                {/* {dropdownOpen === 5 && !isModal && (
                     <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 z-20"
                         onMouseEnter={() => handleMouseEnter(5)}
                         onMouseLeave={handleMouseLeave}>
@@ -136,28 +138,28 @@ export default function Header() {
                         <li className="p-2 hover:bg-red-500 hover:text-white"><a href="#" className="">Blog 2</a></li>
                         <li className="p-2 hover:bg-red-500 hover:text-white"><a href="#" className="">Blog 3</a></li>
                     </ul>
-                )}
+                )} */}
             </li>
-            <li className="nav-item"><a href="#" className="text-black">Contact Us</a></li>
+            <li className="nav-item"><a href="#" className="">Contact Us</a></li>
         </ul>
     );
 
     return (
         <>
             <div className='relative w-full'>
-                <div className='flex'>
-                    <div className="h-32 w-1/3 bg-slate-600 flex pt-7 justify-start">
+                <div className='flex bg-orange-100'>
+                    <div className="h-32 w-1/3 pb-4 pr-7 bg-orange-100 flex pt- justify-start">
                     <Image
             src={"/vedanta-logo.svg"}
             alt={""}
             width={500}
             height={500}
-            className="w-full h-full bg-cover my-4"
+            className="w-[75%] ml-20 mb-10 h-full bg-cover "
           ></Image>
                     </div>
 
-                    <div className="bg-slate-800 md:flex px-4 pt-6 justify-between w-full">
-                        <div className="flex">
+                    <div className="bg-slate-800 md:flex px-4 pt-6 justify-around w-full" style={{ clipPath: 'polygon(8% 0, 100% 0%, 100% 100%, 0% 100%)' }}>
+                        <div className="flex mt-2">
                             <FaPhoneAlt size={20} className='text-white m-2' />
                             <div>
                                 <p className="text-red-600">Call us 9:00am - 6:00pm</p>
@@ -219,21 +221,25 @@ export default function Header() {
             </div>
 
             {isOpen && (
-                <Modal isOpen={isOpen} onClose={toggleMenu}>
-                <div className="fixed inset-0 flex items-center justify-center z-50">
-                        <div className="bg-white w-3/4 h-3/4 p-4">
-                            <div className="flex justify-end">
-                                <button onClick={toggleMenu} className="text-gray-600 hover:text-gray-800">
-                                    <FaTimes size={24} />
-                                </button>
-                            </div>
-                            <nav>
-                                {renderNavItems(true)}
-                            </nav>
-                        </div>
-                    </div>
-                </Modal>
-            )}
+  <Modal isOpen={isOpen} onClose={toggleMenu}>
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      <div
+        className="bg-white w-3/4 h-3/4 p-4 rounded-xl bg-gradient-to-r from-slate-900 via-green-950 to-slate-900"
+        style={{ backgroundImage: '', backgroundSize: 'cover', backgroundPosition: 'center' }}
+      >
+        <div className="flex justify-end">
+          <button onClick={toggleMenu} className="text-gray-600 hover:text-gray-800">
+            <FaTimes size={24} />
+          </button>
+        </div>
+        <nav className='text-white'>
+          {renderNavItems(true)}
+        </nav>
+      </div>
+    </div>
+  </Modal>
+)}
+
         </>
     );
 }

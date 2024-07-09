@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import {
@@ -14,7 +15,13 @@ import { LuPhoneCall } from "react-icons/lu";
 import { MdOutlineAccessTime } from "react-icons/md";
 import { CiMail } from "react-icons/ci";
 import { GiHamburgerMenu } from "react-icons/gi";
-
+import Header from "@/components/Header/Header";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 const Blogcontent = () => {
   const contentData = [
     {
@@ -73,79 +80,27 @@ const Blogcontent = () => {
   );
   return (
     <div>
-      <div className="w-full h-20 md:h-14 bg-black text-white flex justify-around items-center">
-        <div className="md:flex justify-around w-full items-center  my-4">
-          <h1 className="text-center">Welcome to vedanta</h1>
-          <div className="flex justify-center my-4 gap-2">
-            <FaFacebookF />
-            <FaTwitter />
-            <FaGooglePlusG />
-            <FaLinkedin />
-          </div>
-        </div>
-      </div>
-      <div className="w-full h-auto bg-white text-black border border-black flex justify-center items-center">
-        <div className="w-[60%]">
-          <Image
-            src={"/vedanta-logo.svg"}
-            alt={""}
-            width={500}
-            height={500}
-            className="w-full h-full bg-cover my-4"
-          ></Image>
-          <h1 className="flex gap-2 my-2">
-            <span>
-              <LuPhoneCall className="h-8 w-8 mt-2" />
-            </span>
-            <span>
-            Call us 9:00am - 6:00pm
-            <br/>
-            <span className="font-bold">222-121-4562</span>
-            </span>
-          </h1>
-          <h1 className="flex gap-2 my-2">
-            <span>
-             <MdOutlineAccessTime className="h-8 w-8 mt-2" />
-            </span>
-            <span>
-            Monday to Friday
-            <br />
-            <span className="font-bold"> 9:00am - 6:00pm </span>
-            </span>
-          </h1>
-          <h1 className="flex gap-2 my-4 pb-5">
-            <span>
-            <CiMail  className="h-8 w-8 mt-2" />
-            </span>
-            <span>
-            E-mail us
-            <br />
-            <span className="font-bold">
-            support@gmail.com</span>
-            </span>
-          </h1>
-          
-        </div>
-      </div>
+     
+     <Header/>
       <div className="w-full h-auto bg-white border border-black text-white flex justify-around items-center relative">
         <Image
-          src={"/thumb_720_450_dreamstime_m_2401021_1.jpg"}
+          src={"https://www.vedantalimited.com/img/digi_inovation/banner.jpg"}
           alt={""}
           width={500}
           height={500}
-          className="w-full h-full bg-cover"
+          className="w-full h-[25rem] bg-cover"
         ></Image>
-        <div className="absolute -top-1 w-[90%] h-[4rem] bg-white flex">
-<div className="w-1/2 bg-white h-full flex justify-center items-center">
-<GiHamburgerMenu />
+      <div className="absolute top-20">
+<div className="text-5xl mb-4">
+  <h1 className="text-orange-600">Blog Listing</h1>
 </div>
-<div className="w-1/2 bg-gradient-to-r from-cyan-500 to-blue-500 h-full items-center flex justify-center">
-  <h1 className="text-center  text-xl flex gap-0">Get a Quote <FaCaretRight className="mt-1.5" /></h1>
-  
+<hr/>
+<div className="text-2xl flex gap-2">
+  <h1 className="text-orange-600">Home<span className="text-white">&gt;</span> </h1> <h1 className="">Blog Listing</h1>
 </div>
-        </div>
       </div>
-      <div className="mt-20 w-full  flex justify-center gap-7  ">
+      </div>
+      <div className="mt-20 w-full  md:flex justify-center gap-7  ">
         <div>
           {contentData.map((content, index) => (
             <div key={index} className="m-2 mt-7 bg-gray-100 ">
@@ -162,6 +117,7 @@ const Blogcontent = () => {
             </div>
           ))}
         </div>
+        <div className="md:w-[29%] w-[90%] mx-4">
         <div className="relative  mb-10 mt-7 ">
           <input
             type="text"
@@ -172,6 +128,221 @@ const Blogcontent = () => {
           />
           <FaSearch className="absolute right-3  top-5 transform -translate-y-2/4  " />
         </div>
+        <Accordion type="single" collapsible className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It adheres to the WAI-ARIA design pattern.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Is it styled?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It comes with default styles that matches the other
+          components&apos; aesthetic.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It's animated by default, but you can disable it if you prefer.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It's animated by default, but you can disable it if you prefer.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It's animated by default, but you can disable it if you prefer.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It's animated by default, but you can disable it if you prefer.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+    <div className=" mt-10  w-[100%]">
+  <div className="mx-auto p-6 pb-1 border bg-white rounded-md shadow-dashboard">
+    <div className="flex flex-wrap items-center justify-between mb-1 -m-2">
+      <div className="w-auto p-2">
+        <h2 className="text-lg font-semibold text-coolGray-900">Categories</h2>
+    
+      </div>
+      <div className="w-auto p-2">
+        <a
+          href="#"
+          className="text-sm text-green-500 hover:text-green-600 font-semibold"
+          >See all</a >
+      </div>
+    </div>
+    <div className="flex mt-5 flex-wrap">
+      <div className="w-full border-b border-coolGray-100">
+        <div className="flex flex-wrap items-center justify-between py-4 -m-2">
+          <div className="w-auto p-2">
+            <div className="flex flex-wrap items-center -m-2">
+              <div className="w-auto p-2">
+                <div
+                  className="flex items-center justify-center w-12 h-12 bg-yellow-50 rounded-md"
+                >
+             
+                </div>
+              </div>
+              <div className="w-auto p-2">
+                <h2 className="text-sm font-medium text-coolGray-900">Business</h2>
+               
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+      <div className="w-full border-b border-coolGray-100">
+        <div className="flex flex-wrap items-center justify-between py-4 -m-2">
+          <div className="w-auto p-2">
+            <div className="flex flex-wrap items-center -m-2">
+              <div className="w-auto p-2">
+                <div
+                  className="flex items-center justify-center w-12 h-12 bg-green-50 rounded-md"
+                >
+               
+                </div>
+              </div>
+              <div className="w-auto p-2">
+                <h2 className="text-sm font-medium text-coolGray-900">consulting</h2>
+               
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      <div className="w-full">
+        <div className="flex flex-wrap items-center justify-between py-4 -m-2">
+          <div className="w-auto p-2">
+            <div className="flex flex-wrap items-center -m-2">
+              <div className="w-auto p-2">
+                <div
+                  className="flex items-center justify-center w-12 h-12 bg-green-50 text-green-500 rounded-md"
+                >
+                
+                </div>
+              </div>
+              <div className="w-auto p-2">
+                <h2 className="text-sm font-medium text-coolGray-900">Technology</h2>
+               
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      <div className="w-full">
+        <div className="flex flex-wrap items-center justify-between py-4 -m-2">
+          <div className="w-auto p-2">
+            <div className="flex flex-wrap items-center -m-2">
+              <div className="w-auto p-2">
+                <div
+                  className="flex items-center justify-center w-12 h-12 bg-green-50 text-green-500 rounded-md"
+                >
+                
+                </div>
+              </div>
+              <div className="w-auto p-2">
+                <h2 className="text-sm font-medium text-coolGray-900">ESG Vision</h2>
+               
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+      <div className="w-full">
+        <div className="flex flex-wrap items-center justify-between py-4 -m-2">
+          <div className="w-auto p-2">
+            <div className="flex flex-wrap items-center -m-2">
+              <div className="w-auto p-2">
+                <div
+                  className="flex items-center justify-center w-12 h-12 bg-green-50 text-green-500 rounded-md"
+                >
+                
+                </div>
+              </div>
+              <div className="w-auto p-2">
+                <h2 className="text-sm font-medium text-coolGray-900">Social Impact</h2>
+               
+              </div>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div className=" mt-10  w-[100%]">
+  <div className="mx-auto p-6 pb-1 border bg-white rounded-md shadow-dashboard">
+    <div className="flex flex-wrap items-center justify-between mb-1 -m-2">
+      <div className="w-auto p-2">
+        <h2 className="text-lg font-semibold text-coolGray-900">Categories</h2>
+    
+      </div>
+      <div className="w-auto p-2">
+        <a
+          href="#"
+          className="text-sm text-green-500 hover:text-green-600 font-semibold"
+          >See all</a >
+      </div>
+    </div>
+    <Accordion type="single" collapsible className="w-full">
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It adheres to the WAI-ARIA design pattern.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Is it styled?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It comes with default styles that matches the other
+          components&apos; aesthetic.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It's animated by default, but you can disable it if you prefer.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It's animated by default, but you can disable it if you prefer.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It's animated by default, but you can disable it if you prefer.
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Is it animated?</AccordionTrigger>
+        <AccordionContent>
+          Yes. It's animated by default, but you can disable it if you prefer.
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  </div>
+</div>
+
+
+    </div>
       </div>
     </div>
   );

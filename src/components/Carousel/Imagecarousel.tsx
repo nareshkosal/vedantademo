@@ -176,7 +176,7 @@ export function ImagesSliderDemo() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <div className="px-4">
+            <div className="px-20">
               <h1 className="text-4xl text-white font-bold">
                 We will provide the best <br /> <span className="text-orange-500">Industrial</span> service
               </h1>

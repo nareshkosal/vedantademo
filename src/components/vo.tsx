@@ -5,6 +5,13 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Button } from "@/components/ui/button";
 
+import { GiChemicalDrop } from 'react-icons/gi';
+import { BsFillFuelPumpFill } from "react-icons/bs";
+import TitleSection from "./Titlesection";
+
+
+ // Replace with actual icons you need
+
 export default function Component() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const videoRef = useRef(null);
@@ -74,38 +81,47 @@ export default function Component() {
   };
   const features = [
     {
+      icon: GiChemicalDrop,
       title: "Who We Are",
       description: "Aenean lacinia feugiat massa, sit amet con sequat lacus suscipit vitae. Nunc vitae velit arcu aliquam"
     },
     {
+      icon: BsFillFuelPumpFill,
       title: "Our Security",
       description: "Aenean lacinia feugiat massa, sit amet con sequat lacus suscipit vitae. Nunc vitae velit arcu aliquam"
     },
     {
+      icon: BsFillFuelPumpFill,
       title: "Our Process",
       description: "Aenean lacinia feugiat massa, sit amet con sequat lacus suscipit vitae. Nunc vitae velit arcu aliquam"
     },
     {
+      icon: BsFillFuelPumpFill,
       title: "Our Destiny",
       description: "Aenean lacinia feugiat massa, sit amet con sequat lacus suscipit vitae. Nunc vitae velit arcu aliquam"
     },
     {
+      icon: BsFillFuelPumpFill,
       title: "Our Vision",
       description: "Aenean lacinia feugiat massa, sit amet con sequat lacus suscipit vitae. Nunc vitae velit arcu aliquam"
     },
     {
+      icon: BsFillFuelPumpFill,
       title: "Our Mission",
       description: "Aenean lacinia feugiat massa, sit amet con sequat lacus suscipit vitae. Nunc vitae velit arcu aliquam"
     },
     {
+      icon: BsFillFuelPumpFill,
       title: "Our Values",
       description: "Aenean lacinia feugiat massa, sit amet con sequat lacus suscipit vitae. Nunc vitae velit arcu aliquam"
     },
     {
+      icon: BsFillFuelPumpFill,
       title: "Our Goals",
       description: "Aenean lacinia feugiat massa, sit amet con sequat lacus suscipit vitae. Nunc vitae velit arcu aliquam"
     }
   ];
+  
 
   const prevSlide = () => {
     if (sliderRef.current) {
@@ -118,8 +134,21 @@ export default function Component() {
       sliderRef.current.slickNext();
     }
   };
+  const [selectedTitle, setSelectedTitle] = useState<number>(0);
+
+  const titles = [
+    { title: 'Title 1', images: ['/image1.jpg', '/image2.jpg', '/image3.jpg', '/image4.jpg'] },
+    { title: 'Title 2', images: ['/image5.jpg', '/image6.jpg', '/image7.jpg', '/image8.jpg'] },
+    { title: 'Title 3', images: ['/image9.jpg', '/image10.jpg', '/image11.jpg', '/image12.jpg'] },
+    { title: 'Title 4', images: ['/image13.jpg', '/image14.jpg', '/image15.jpg', '/image16.jpg'] },
+    { title: 'Title 5', images: ['/image17.jpg', '/image18.jpg', '/image19.jpg', '/image20.jpg'] },
+    { title: 'Title 6', images: ['/image21.jpg', '/image22.jpg', '/image23.jpg', '/image24.jpg'] },
+    { title: 'Title 7', images: ['/image25.jpg', '/image26.jpg', '/image27.jpg', '/image28.jpg'] },
+  ];
+  const selectedImages = titles[selectedTitle].images;
 
   return (
+    <>
     <div className="min-h-screen bg-white">
       <main className="px-4 py-16 text-center md:px-8 lg:px-16">
         <div className="md:flex">
@@ -183,28 +212,44 @@ export default function Component() {
           <section className="bg-white py-16 text-black">
             <div className="container mx-auto px-4 max-w-7xl">
               <Slider ref={sliderRef} {...settings}>
-                {features.map((feature, index) => (
-                  <div key={index} className="px-2">
-                    <div className="relative w-48 h-48 overflow-hidden border transition duration-300 hover:shadow-xl group">
-                      <div className="absolute inset-0 bg-[#0063A8] transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                      <div className="relative z-10 h-full flex flex-col justify-center items-center p-8 text-center">
-                        <div className="text-4xl text-blue-600 mb-4 group-hover:text-[#66CC33] transition-colors duration-300"></div>
-                        <h3 className="text-2xl font-bold mb-4 group-hover:text-[#66CC33] transition-colors duration-300">
-                          {feature.title}
-                        </h3>
-                        <p className="group-hover:text-[#66CC33] transition-colors duration-300">
-                          {feature.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              {features.map((feature, index) => (
+  <div key={index} className="px-2">
+    <div className="relative w-48 h-48 overflow-hidden border border-black rounded-xl transition duration-300 hover:shadow-xl group">
+      <div className="absolute inset-0 bg-[#0063A8] transform -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+      <div className="relative z-10 h-full flex flex-col justify-center items-center p-8 text-center">
+        {/* Default content */}
+        <div className="default-content group-hover:hidden">
+          <div className="text-4xl text-orange-600 mb-4 transition-colors duration-300 flex justify-center">
+            {React.createElement(feature.icon, { className: "h-10 w-10 flex justify-center" })}
+          </div>
+          <h3 className="text-xl font-bold mb-4 transition-colors duration-300">
+            {feature.title}
+          </h3>
+        </div>
+        {/* Hover content */}
+        <div className="hover-content hidden group-hover:flex flex-col justify-center items-center">
+          <div className="text-4xl text-[#66CC33] mb-4 transition-colors duration-300">
+            {React.createElement(feature.icon, { className: "h-10 w-10 flex justify-center text-[#66CC33]" })}
+          </div>
+          <h3 className="text-2xl font-bold mb-4 text-[#66CC33] transition-colors duration-300">
+            {feature.title}
+          </h3>
+          <p className="transition-colors duration-300">
+            {feature.description}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+))}
+
+
               </Slider>
             </div>
           </section>
-          <div className="absolute top-1/2 transform -translate-y-1/2 left-0 right-0 flex justify-between px-4">
+          <div className="absolute top-1/2 transform -translate-y-1/2 left-0 right-0 flex justify-between -4">
             <Button onClick={prevSlide} className="bg-gray-200 text-gray-800 hover:bg-gray-300">&lt;</Button>
-            <Button onClick={nextSlide} className="bg-gray-200 text-gray-800 hover:bg-gray-300">&gt;</Button>
+            <Button onClick={nextSlide} className="bg-gray-200 text-gray-800 mr-9 hover:bg-gray-300">&gt;</Button>
           </div>
         </div>
       </main>
@@ -250,5 +295,45 @@ export default function Component() {
         </div>
       )}
     </div>
+    <div>
+      <h1 className="text-4xl text-center">Projects for <span className="text-orange-500">inspirations</span></h1>
+      <div className="flex justify-center w-full my-5">
+      <h1 className="text-xl text-center w-2/4">You will find yourself working in a true partnership that results in an incredible
+      experience, and an end product that is the best.</h1>
+      </div>
+
+      <br/>
+      <br/>
+      <div >
+        <div className="flex justify-center"><div className="flex gap-10">
+      {titles.map((section, index) => (
+        <TitleSection
+          key={index}
+          title={section.title}
+          isSelected={selectedTitle === index}
+          onClick={() => setSelectedTitle(index)}
+        />
+      ))}</div></div>
+        
+      <div className="images">
+        {selectedImages.map((src, index) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img key={index} src={src} alt={`Image ${index + 1}`} />
+        ))}
+      </div>
+      <style jsx>{`
+        .images {
+          display: flex;
+          gap: 10px;
+          margin-top: 20px;
+        }
+        .images img {
+          width: 100px;
+          height: 100px;
+        }
+      `}</style>
+    </div>
+    </div>
+    </>
   );
 }

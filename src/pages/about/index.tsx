@@ -8,6 +8,7 @@ import { GoShieldCheck } from "react-icons/go";
 import { RiLightbulbFlashLine } from "react-icons/ri";
 import { BsPersonWorkspace } from "react-icons/bs";
 import Link from "next/link";
+import Header from "@/components/Header/Header";
 
 const About = () => {
   const [selectedYear, setSelectedYear] = useState(2010);
@@ -64,7 +65,7 @@ const About = () => {
   ];
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
+      <Header/>
       <main className="flex-grow">
         <div className="bg-white">
           {/* Inner Banner */}
