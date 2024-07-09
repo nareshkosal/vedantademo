@@ -70,15 +70,15 @@ const Cardcarousel: React.FC = () => {
 
   return (
     <section className="p-8">
-      <Slider {...settings}>
+      <Slider {...settings} className="card-slider">
         {images.map((imageUrl, index) => (
           <div
             key={index}
-            className="relative"
+            className="relative p-2"
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            <Card className="relative overflow-hidden">
+            <Card className="relative overflow-hidden border-none shadow-none">
               <div className="w-full h-56 relative">
                 <Image
                   src={imageUrl}
