@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Image from 'next/image';
 const Footer = () => {
   return (
     <div>
@@ -34,7 +34,7 @@ const Footer = () => {
       <footer className="bg-white text-black py-8">
         <div className="container mx-auto px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <img src="/path/to/your/logo.png" alt="Company Logo" className="mb-4" />
+            <Image src="/vedanta-logo.svg" alt="Company Logo" className="mb-4" width={200} height={200} />
             <h6 className="font-bold text-lg">About us</h6>
             <p>Many of our SELC registered employees are requested as main preferred temporary staff when a service.</p>
           </div>

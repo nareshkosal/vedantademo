@@ -20,8 +20,7 @@ export default function Home() {
    <ImagesSliderDemo />
    {/* <Card/> */}
    <Company/>
-   <div className="absolute bottom-0 w-full">
-   </div>
+   <Footer />
    </>
   );
 }

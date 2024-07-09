@@ -318,31 +318,37 @@ export default function Component() {
                 onClick={() => setSelectedTitle(index)}
               />
             ))}</div></div>
-
-
-
-
-
-
           <div className="flex justify-center">
-            <div className="images w-[90%] grid grid-cols-4 mt-10">
+          <div className="images w-[90%] grid grid-cols-4 gap-4 mt-10">
               {selectedImages.map((src, index) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <Image width={500} height={500} className="w-full" key={index} src={src} alt={`Image ${index + 1}`} />
+                <div key={index} className="image-container">
+                  <Image
+                    width={300}
+                    height={300}
+                    src={src}
+                    alt={`Image ${index + 1}`}
+                    className="title-image"
+                    objectFit="fit"
+                  />
+                </div>
               ))}
             </div>
           </div>
           <style jsx>{`
-        .images {
-         
-          gap: 10px;
-          margin-top: 20px;
-        }
-        .images img {
-          width: 100px;
-          height: 100px;
-        }
-      `}</style>
+          .images {
+            gap: 10px;
+            margin-top: 20px;
+          }
+          .image-container {
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+          }
+          .title-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        `}</style>
         </div>
       </div>
     </>

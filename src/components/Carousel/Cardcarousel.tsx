@@ -8,7 +8,9 @@ const Cardcarousel: React.FC = () => {
   const images = [
     "https://images.pexels.com/photos/236709/pexels-photo-236709.jpeg?auto=compress&cs=tinysrgb&w=800",
     "https://images.pexels.com/photos/2569844/pexels-photo-2569844.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "https://images.pexels.com/photos/459728/pexels-photo-459728.jpeg?auto=compress&cs=tinysrgb&w=800"
+    "https://images.pexels.com/photos/459728/pexels-photo-459728.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/2569844/pexels-photo-2569844.jpeg?auto=compress&cs=tinysrgb&w=800",
+
   ];
 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
