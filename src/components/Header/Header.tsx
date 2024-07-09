@@ -53,9 +53,9 @@ export default function Header() {
                     onMouseEnter={() => !isModal && handleMouseEnter(1)}
                     onMouseLeave={() => !isModal && handleMouseLeave()}
                 >
-                    Home {isModal ? null : <FaChevronDown className="ml-1 text-xs text-red-500" />}
+                    Home
                 </button></Link>
-                {/* 
+                {/*
                 {dropdownOpen === 1 && !isModal && (
                     <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 z-20"
                         onMouseEnter={() => handleMouseEnter(1)}
@@ -68,28 +68,62 @@ export default function Header() {
             </li>
             <li className="nav-item"><a href="about" className="">About Us</a></li>
             <li className="relative nav-item">
-                <button
-                    className=" focus:outline-none flex items-center"
-                    onMouseEnter={() => !isModal && handleMouseEnter(2)}
-                    onMouseLeave={() => !isModal && handleMouseLeave}
-                >
-                    Services {isModal ? null : <FaChevronDown className="ml-1 text-xs text-red-500" />}
-                </button>
-                {dropdownOpen === 2 && !isModal && (
-                    <ul className="absolute left-0 mt-2 w-60 bg-white border border-gray-300 z-20"
-                        onMouseEnter={() => handleMouseEnter(2)}
-                        onMouseLeave={handleMouseLeave}>
-                        <Link href="/services/nickel" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
-                        <Link href="/services" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
-                        <Link href="/services" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
-                        <Link href="/services" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
-                        <Link href="/services" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
-                        <Link href="/services" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
-                        <Link href="/services" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
-                        <Link href="/services" className="p-2 hover:bg-red-500 hover:text-white">Nickel Metal (Cathode)</Link>
-                    </ul>
-                )}
-            </li>
+      <button
+        className="focus:outline-none flex items-center"
+        onMouseEnter={() => !isModal && handleMouseEnter(2)}
+        onMouseLeave={() => !isModal && handleMouseLeave()}
+      >
+        Services {isModal ? null : <FaChevronDown className="ml-1 text-xs text-red-500" />}
+      </button>
+      {dropdownOpen === 2 && !isModal && (
+        <ul
+          className="absolute left-0 mt-2 w-48 bg-white border border-gray-300 z-20"
+          onMouseEnter={() => handleMouseEnter(2)}
+          onMouseLeave={handleMouseLeave}
+        >
+          <li className="p-2 hover:bg-red-500 hover:text-white">
+            <Link href="/services/nickel">
+              Nickel Metal (Cathode)
+            </Link>
+          </li>
+          <li className="p-2 hover:bg-red-500 hover:text-white">
+            <Link href="/services/nickel">
+              Nickel Sulphate Hexahydrate
+            </Link>
+          </li>
+          <li className="p-2 hover:bg-red-500 hover:text-white">
+            <Link href="/services/nickel">
+              Nickel Sulphate Solution
+            </Link>
+          </li>
+          <li className="p-2 hover:bg-red-500 hover:text-white">
+            <Link href="/services/cobalt">
+              Cobalt Sulphate Crystals
+            </Link>
+          </li>
+          <li className="p-2 hover:bg-red-500 hover:text-white">
+            <Link href="/services/cobalt">
+              Cobalt Sulphate Solutions
+            </Link>
+          </li>
+          <li className="p-2 hover:bg-red-500 hover:text-white">
+            <Link href="/services/manganesesulphatesolutions">
+              Manganese Sulphate Solutions
+            </Link>
+          </li>
+          <li className="p-2 hover:bg-red-500 hover:text-white">
+            <Link href="/services/manganesesulphatecrystals">
+              Manganese Sulphate Crystals
+            </Link>
+          </li>
+          <li className="p-2 hover:bg-red-500 hover:text-white">
+            <Link href="/services/sodiumsulphateanhydrous">
+              Sodium Sulphate Anhydrous
+            </Link>
+          </li>
+        </ul>
+      )}
+    </li>
             <li className="relative nav-item">
                 <button
                     className=" focus:outline-none flex items-center"

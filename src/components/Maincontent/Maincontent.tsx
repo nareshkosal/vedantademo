@@ -78,9 +78,9 @@ export default function MainContent() {
           <section className="flex-1 bg-white p-4 md:p-6 rounded shadow">
             <h1 className="text-2xl font-bold">Chemical Research</h1>
             <Image
-        src="/placeholder.svg"
+        src="https://images.pexels.com/photos/8851075/pexels-photo-8851075.jpeg?auto=compress&cs=tinysrgb&w=800"
         alt="Chemical Research"
-        width={500}  // Adjust width and height as per your design requirements
+        width={700}  // Adjust width and height as per your design requirements
         height={300}
         className="mt-4 rounded"
       />            <p className="mt-4 text-gray-700">
