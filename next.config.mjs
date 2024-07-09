@@ -6,6 +6,11 @@ const nextConfig = {
       "images.pexels.com",
       "https://img.freepik.com",
       'www.vedantalimited.com',
+      "img.etimg.com",
+      "encrypted-tbn0.gstatic.com",
+      "www.thestatesman.com",
+      "s7ap1.scene7.com",
+      "telugustop.com"
     ],
   },
 };

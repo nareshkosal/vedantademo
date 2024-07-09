@@ -137,13 +137,15 @@ export default function Component() {
   const [selectedTitle, setSelectedTitle] = useState<number>(0);
 
   const titles = [
-    { title: 'Title 1', images: ['/image1.jpg', '/image2.jpg', '/image3.jpg', '/image4.jpg'] },
-    { title: 'Title 2', images: ['/image5.jpg', '/image6.jpg', '/image7.jpg', '/image8.jpg'] },
-    { title: 'Title 3', images: ['/image9.jpg', '/image10.jpg', '/image11.jpg', '/image12.jpg'] },
-    { title: 'Title 4', images: ['/image13.jpg', '/image14.jpg', '/image15.jpg', '/image16.jpg'] },
+    { title: 'Title 1', images: ['https://img.etimg.com/thumb/width-420,height-315,imgsize-132246,resizemode-75,msid-47096231/industry/energy/oil-gas/vedanta-reports-3-bn-goodwill-impairment-charges-related-to-oil-gas-biz-biggest-in-indias-corporate-history.jpg', 
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1eSFbZUSzDoP2Qo_PeWUVmwwA-TFJ16Q3VQ&s', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1eSFbZUSzDoP2Qo_PeWUVmwwA-TFJ16Q3VQ&s', 'https://img.etimg.com/thumb/width-420,height-315,imgsize-132246,resizemode-75,msid-47096231/industry/energy/oil-gas/vedanta-reports-3-bn-goodwill-impairment-charges-related-to-oil-gas-biz-biggest-in-indias-corporate-history.jpg','https://img.etimg.com/thumb/width-420,height-315,imgsize-132246,resizemode-75,msid-47096231/industry/energy/oil-gas/vedanta-reports-3-bn-goodwill-impairment-charges-related-to-oil-gas-biz-biggest-in-indias-corporate-history.jpg', 
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1eSFbZUSzDoP2Qo_PeWUVmwwA-TFJ16Q3VQ&s', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1eSFbZUSzDoP2Qo_PeWUVmwwA-TFJ16Q3VQ&s', 'https://img.etimg.com/thumb/width-420,height-315,imgsize-132246,resizemode-75,msid-47096231/industry/energy/oil-gas/vedanta-reports-3-bn-goodwill-impairment-charges-related-to-oil-gas-biz-biggest-in-indias-corporate-history.jpg'] },
+    { title: 'Title 2', images: ['https://www.vedantalimited.com/vedantaFY23/images/mbl/vedanta-at-a-glance.webp', 'https://www.thestatesman.com/wp-content/uploads/2021/07/water-cannonnew.jpg', '/image7.jpg', 'https://s7ap1.scene7.com/is/image/TCSCOMprod/vedanta-automates-operations-from-pit-to-port?wid=1100&hei=581&dpr=off'] },
+    { title: 'Title 3', images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1eSFbZUSzDoP2Qo_PeWUVmwwA-TFJ16Q3VQ&s', '/image10.jpg', '/image11.jpg', '/image12.jpg'] },
+    { title: 'Title 4', images: ['/image13.jpg', '/image14.jpg', '/image15.jpg', 'https://telugustop.com/wp-content/uploads/2022/02/vedanta-aluminium-fly-ash.jpg'] },
     { title: 'Title 5', images: ['/image17.jpg', '/image18.jpg', '/image19.jpg', '/image20.jpg'] },
-    { title: 'Title 6', images: ['/image21.jpg', '/image22.jpg', '/image23.jpg', '/image24.jpg'] },
-    { title: 'Title 7', images: ['/image25.jpg', '/image26.jpg', '/image27.jpg', '/image28.jpg'] },
+    { title: 'Title 6', images: ['/image21.jpg', 'https://www.vedantalimited.com/vedantaFY23/images/mbl/vedanta-at-a-glance.webp', '/image23.jpg', '/image24.jpg'] },
+    { title: 'Title 7', images: ['/image25.jpg', '/image26.jpg', '/image27.jpg', 'https://www.vedantalimited.com/vedantaFY23/images/mbl/vedanta-at-a-glance.webp'] },
   ];
   const selectedImages = titles[selectedTitle].images;
 
@@ -305,7 +307,7 @@ export default function Component() {
       <br/>
       <br/>
       <div >
-        <div className="flex justify-center"><div className="flex gap-10">
+        <div className="flex justify-center w-full text-2xl px-4"><div className="flex px-4  ">
       {titles.map((section, index) => (
         <TitleSection
           key={index}
@@ -315,15 +317,22 @@ export default function Component() {
         />
       ))}</div></div>
         
-      <div className="images">
+
+
+
+
+
+        <div className="flex justify-center">
+      <div className="images w-[90%] grid grid-cols-4 mt-10">
         {selectedImages.map((src, index) => (
           // eslint-disable-next-line @next/next/no-img-element
-          <img key={index} src={src} alt={`Image ${index + 1}`} />
+          <Image width={500} height={500} className="w-full" key={index} src={src} alt={`Image ${index + 1}`} />
         ))}
+      </div>
       </div>
       <style jsx>{`
         .images {
-          display: flex;
+         
           gap: 10px;
           margin-top: 20px;
         }
